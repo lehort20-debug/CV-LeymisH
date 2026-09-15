@@ -249,13 +249,8 @@ export const Hero: React.FC<HeroProps> = ({
                     }}
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      const target = e.target as HTMLImageElement;
-                      if (!target.src.endsWith('/Foto.png')) {
-                        target.src = '/Foto.png';
-                      } else {
-                        target.src =
-                          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
-                      }
+                      (e.target as HTMLImageElement).src =
+                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
                     }}
                   />
 
