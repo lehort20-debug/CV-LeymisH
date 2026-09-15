@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   const handleSelectPortrait = (type: 'ai' | 'real') => {
     if (type === 'ai') {
-      if (onUpdateAvatar) onUpdateAvatar('/leymis-profile.jpg');
+      if (onUpdateAvatar) onUpdateAvatar('/Foto800x800.png');
     } else {
       if (uploadedRealPhoto) {
         if (onUpdateAvatar) onUpdateAvatar(uploadedRealPhoto);
@@ -249,9 +249,13 @@ export const Hero: React.FC<HeroProps> = ({
                     }}
                     referrerPolicy="no-referrer"
                     onError={(e) => {
-                      // Fallback placeholder if image fails to load
-                      (e.target as HTMLImageElement).src =
-                        'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                      const target = e.target as HTMLImageElement;
+                      if (!target.src.endsWith('/Foto.png')) {
+                        target.src = '/Foto.png';
+                      } else {
+                        target.src =
+                          'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80';
+                      }
                     }}
                   />
 

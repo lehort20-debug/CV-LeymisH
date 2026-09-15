@@ -16,7 +16,7 @@ import { ExportModal } from './components/ExportModal';
 import { QRCodeModal } from './components/QRCodeModal';
 import { Sparkles, X } from 'lucide-react';
 
-const STORAGE_KEY = 'cv_landing_portfolio_leymis_marketing_v5';
+const STORAGE_KEY = 'cv_landing_portfolio_leymis_marketing_v6';
 
 export default function App() {
   // Load saved state or default
@@ -26,27 +26,21 @@ export default function App() {
       if (saved) {
         const parsed = JSON.parse(saved);
         if (parsed?.personal?.fullName?.toLowerCase().includes('leymis')) {
+          const prevAvatar = parsed?.personal?.avatarUrl;
+          const cleanAvatar =
+            prevAvatar &&
+            prevAvatar !== '/leymis-profile.jpg' &&
+            prevAvatar !== '/leymis-real-headshot.jpg' &&
+            prevAvatar !== '/Foto.png'
+              ? prevAvatar
+              : '/Foto800x800.png';
           return {
             ...defaultPortfolio,
             personal: {
               ...defaultPortfolio.personal,
-              avatarUrl: parsed?.personal?.avatarUrl || defaultPortfolio.personal.avatarUrl,
+              avatarUrl: cleanAvatar,
             },
           };
-        }
-      } else {
-        const prevSaved = localStorage.getItem('cv_landing_portfolio_leymis_marketing_v4');
-        if (prevSaved) {
-          const parsed = JSON.parse(prevSaved);
-          if (parsed?.personal?.avatarUrl) {
-            return {
-              ...defaultPortfolio,
-              personal: {
-                ...defaultPortfolio.personal,
-                avatarUrl: parsed.personal.avatarUrl,
-              },
-            };
-          }
         }
       }
     } catch (e) {

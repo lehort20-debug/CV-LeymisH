@@ -9,7 +9,7 @@ export const defaultPortfolio: PortfolioData = {
     location: 'Barcelona, España',
     email: 'lehort20@gmail.com',
     phone: '613 302 129',
-    avatarUrl: '/leymis-profile.jpg',
+    avatarUrl: '/Foto800x800.png',
     availability: 'available',
     availabilityText: 'Buscando Prácticas en Marketing / Incorporación inmediata',
     socialLinks: {
