@@ -38,6 +38,16 @@ export const Hero: React.FC<HeroProps> = ({
 }) => {
   const theme = themeConfigs[themeColor];
   const { personal, stats } = data;
+
+  const resolveImageUrl = (url: string) => {
+    if (!url) return '';
+    if (url.startsWith('http://') || url.startsWith('https://') || url.startsWith('data:')) {
+      return url;
+    }
+    const clean = url.startsWith('/') ? url.slice(1) : url;
+    const baseUrl = (import.meta as unknown as { env?: { BASE_URL?: string } }).env?.BASE_URL || './';
+    return `${baseUrl}${clean}`;
+  };
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadedRealPhoto, setUploadedRealPhoto] = useState<string | null>(() => {
     return localStorage.getItem('leymis_custom_real_photo') || null;
@@ -241,7 +251,7 @@ export const Hero: React.FC<HeroProps> = ({
                   } rounded-2xl overflow-hidden mb-4 bg-slate-100 dark:bg-slate-800 group transition-all duration-300 shadow-inner`}
                 >
                   <img
-                    src={personal.avatarUrl}
+                    src={resolveImageUrl(personal.avatarUrl)}
                     alt={personal.fullName}
                     className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105"
                     style={{
