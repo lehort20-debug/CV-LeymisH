@@ -28,6 +28,7 @@ interface HeroProps {
   onOpenCvModal: () => void;
   onOpenQrModal: () => void;
   onUpdateAvatar?: (url: string) => void;
+  isEditMode?: boolean;
 }
 
 export const Hero: React.FC<HeroProps> = ({
@@ -36,6 +37,7 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenCvModal,
   onOpenQrModal,
   onUpdateAvatar,
+  isEditMode = false,
 }) => {
   const theme = themeConfigs[themeColor];
   const { personal, stats } = data;
@@ -267,31 +269,36 @@ export const Hero: React.FC<HeroProps> = ({
                     }}
                   />
 
-                  {/* Top-left "Centrar foto" button */}
-                  <button
-                    onClick={() => setShowFramingTools(!showFramingTools)}
-                    type="button"
-                    className="absolute top-2.5 left-2.5 px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1.5 transition-transform active:scale-95 cursor-pointer z-10"
-                    title="Ajustar centrado y encuadre de la foto"
-                  >
-                    <Sliders className="w-3.5 h-3.5 text-indigo-400" />
-                    <span>{showFramingTools ? 'Cerrar ajuste' : 'Centrar foto'}</span>
-                  </button>
+                  {/* Photo Edit Controls (Visible only when ?edit=1) */}
+                  {isEditMode && (
+                    <>
+                      {/* Top-left "Centrar foto" button */}
+                      <button
+                        onClick={() => setShowFramingTools(!showFramingTools)}
+                        type="button"
+                        className="absolute top-2.5 left-2.5 px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1.5 transition-transform active:scale-95 cursor-pointer z-10"
+                        title="Ajustar centrado y encuadre de la foto"
+                      >
+                        <Sliders className="w-3.5 h-3.5 text-indigo-400" />
+                        <span>{showFramingTools ? 'Cerrar ajuste' : 'Centrar foto'}</span>
+                      </button>
 
-                  {/* Top-right "Cambiar foto" button */}
-                  <button
-                    onClick={() => fileInputRef.current?.click()}
-                    type="button"
-                    className="absolute top-2.5 right-2.5 px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1.5 transition-transform active:scale-95 cursor-pointer z-10"
-                    title="Subir o cambiar por mi foto real"
-                  >
-                    <Camera className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Cambiar foto</span>
-                  </button>
+                      {/* Top-right "Cambiar foto" button */}
+                      <button
+                        onClick={() => fileInputRef.current?.click()}
+                        type="button"
+                        className="absolute top-2.5 right-2.5 px-2.5 py-1.5 rounded-xl bg-slate-900/85 hover:bg-slate-900 text-white text-[11px] font-semibold backdrop-blur-md border border-white/20 shadow-md flex items-center gap-1.5 transition-transform active:scale-95 cursor-pointer z-10"
+                        title="Subir o cambiar por mi foto real"
+                      >
+                        <Camera className="w-3.5 h-3.5 text-amber-400" />
+                        <span>Cambiar foto</span>
+                      </button>
+                    </>
+                  )}
                 </div>
 
-                {/* Interactive Framing & Centering Panel */}
-                {showFramingTools && (
+                {/* Interactive Framing & Centering Panel (Visible only when ?edit=1) */}
+                {isEditMode && showFramingTools && (
                   <div className="mb-4 p-3 rounded-2xl bg-indigo-50/90 dark:bg-slate-800/95 border border-indigo-200 dark:border-indigo-900/50 text-xs animate-in fade-in zoom-in-95 space-y-2.5">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-1 text-[11px]">

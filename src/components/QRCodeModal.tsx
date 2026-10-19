@@ -30,25 +30,17 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [copied, setCopied] = useState(false);
-  const [customUrl, setCustomUrl] = useState(FIXED_PORTFOLIO_URL);
   const [downloading, setDownloading] = useState(false);
 
   const theme = themeConfigs[themeColor];
 
-  // Always enforce the fixed production URL (never window.location from preview)
+  // Generate QR code encoding exclusively the fixed production URL
   useEffect(() => {
-    if (isOpen) {
-      setCustomUrl(FIXED_PORTFOLIO_URL);
-    }
-  }, [isOpen]);
-
-  // Generate QR code whenever URL changes or modal opens
-  useEffect(() => {
-    if (!isOpen || !canvasRef.current || !customUrl) return;
+    if (!isOpen || !canvasRef.current) return;
 
     QRCode.toCanvas(
       canvasRef.current,
-      customUrl,
+      FIXED_PORTFOLIO_URL,
       {
         width: 280,
         margin: 2,
@@ -62,13 +54,13 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
         if (error) console.error('Error generating QR code:', error);
       }
     );
-  }, [isOpen, customUrl]);
+  }, [isOpen]);
 
   if (!isOpen) return null;
 
   const handleCopyLink = async () => {
     try {
-      await navigator.clipboard.writeText(customUrl || FIXED_PORTFOLIO_URL);
+      await navigator.clipboard.writeText(FIXED_PORTFOLIO_URL);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
@@ -82,7 +74,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
         await navigator.share({
           title: `${data.personal.fullName} | ${data.personal.title}`,
           text: `Landing page y portafolio profesional de ${data.personal.fullName}:`,
-          url: customUrl || FIXED_PORTFOLIO_URL,
+          url: FIXED_PORTFOLIO_URL,
         });
       } catch {
         // User cancelled share dialog
@@ -139,7 +131,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
       ctx.fillStyle = '#94a3b8';
       ctx.font = '11px system-ui, -apple-system, sans-serif';
       ctx.fillText(
-        (customUrl || FIXED_PORTFOLIO_URL).replace(/^https?:\/\//, ''),
+        FIXED_PORTFOLIO_URL.replace(/^https?:\/\//, ''),
         exportCanvas.width / 2,
         exportCanvas.height - 18
       );
@@ -154,7 +146,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
   };
 
   const shareWhatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-    `¡Hola! Te comparto el enlace a mi landing page y portafolio profesional de Marketing: ${customUrl || FIXED_PORTFOLIO_URL}`
+    `¡Hola! Te comparto el enlace a mi landing page y portafolio profesional de Marketing: ${FIXED_PORTFOLIO_URL}`
   )}`;
 
   const supportsNativeShare =
@@ -184,7 +176,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="p-1.5 rounded-lg text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
           >
             <X className="w-5 h-5" />
           </button>
@@ -212,9 +204,9 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
             <div className="flex items-center gap-2 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
               <input
                 type="text"
-                value={customUrl}
-                onChange={(e) => setCustomUrl(e.target.value)}
-                className="w-full bg-transparent text-xs text-slate-800 dark:text-slate-200 px-2 py-1 outline-hidden font-mono"
+                readOnly
+                value={FIXED_PORTFOLIO_URL}
+                className="w-full bg-transparent text-xs text-slate-800 dark:text-slate-200 px-2 py-1 outline-hidden font-mono select-all cursor-text"
               />
               <button
                 onClick={handleCopyLink}
@@ -268,7 +260,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
           )}
 
           <a
-            href={customUrl || FIXED_PORTFOLIO_URL}
+            href={FIXED_PORTFOLIO_URL}
             target="_blank"
             rel="noreferrer"
             className="text-[11px] text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center gap-1 mt-3 transition-colors"

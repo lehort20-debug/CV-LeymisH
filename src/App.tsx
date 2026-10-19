@@ -56,6 +56,30 @@ export default function App() {
     data.theme?.darkMode || false
   );
 
+  // Edit Mode: only active if the URL carries ?edit=1 (or edit=true)
+  const [isEditMode, setIsEditMode] = useState<boolean>(() => {
+    if (typeof window === 'undefined') return false;
+    const params = new URLSearchParams(window.location.search);
+    const editParam = params.get('edit');
+    return editParam === '1' || editParam === 'true';
+  });
+
+  useEffect(() => {
+    const checkEditMode = () => {
+      if (typeof window === 'undefined') return;
+      const params = new URLSearchParams(window.location.search);
+      const editParam = params.get('edit');
+      setIsEditMode(editParam === '1' || editParam === 'true');
+    };
+
+    window.addEventListener('popstate', checkEditMode);
+    window.addEventListener('hashchange', checkEditMode);
+    return () => {
+      window.removeEventListener('popstate', checkEditMode);
+      window.removeEventListener('hashchange', checkEditMode);
+    };
+  }, []);
+
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
   const [isEditorModalOpen, setIsEditorModalOpen] = useState(false);
   const [isExportModalOpen, setIsExportModalOpen] = useState(false);
@@ -115,12 +139,15 @@ export default function App() {
         data={data}
         onOpenCvModal={() => setIsCvModalOpen(true)}
         onOpenQrModal={() => setIsQrModalOpen(true)}
-        onOpenEditorModal={() => setIsEditorModalOpen(true)}
+        onOpenEditorModal={() => {
+          if (isEditMode) setIsEditorModalOpen(true);
+        }}
         onOpenExportModal={() => setIsExportModalOpen(true)}
         onThemeColorChange={handleThemeColorChange}
         onToggleDarkMode={handleToggleDarkMode}
         activeColor={activeColor}
         darkMode={darkMode}
+        isEditMode={isEditMode}
       />
 
       {/* Main Landing Page Content */}
@@ -129,6 +156,7 @@ export default function App() {
         <Hero
           data={data}
           themeColor={activeColor}
+          isEditMode={isEditMode}
           onOpenCvModal={() => setIsCvModalOpen(true)}
           onOpenQrModal={() => setIsQrModalOpen(true)}
           onUpdateAvatar={(newUrl: string) => {
@@ -188,7 +216,7 @@ export default function App() {
       />
 
       <LiveEditorModal
-        isOpen={isEditorModalOpen}
+        isOpen={isEditorModalOpen && isEditMode}
         onClose={() => setIsEditorModalOpen(false)}
         data={data}
         onSave={handleUpdateData}
@@ -208,6 +236,29 @@ export default function App() {
         data={data}
         themeColor={activeColor}
       />
+
+      {/* Floating indicator when ?edit=1 is active */}
+      {isEditMode && (
+        <aside
+          aria-label="Panel de modo edición"
+          className="fixed bottom-4 left-4 z-40 flex items-center gap-2.5 px-3.5 py-2 rounded-2xl bg-slate-900/90 text-white text-xs backdrop-blur-md border border-slate-700/80 shadow-2xl animate-in fade-in slide-in-from-bottom-2"
+        >
+          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="font-semibold">Modo edición activo (?edit=1)</span>
+          <button
+            onClick={() => {
+              const url = new URL(window.location.href);
+              url.searchParams.delete('edit');
+              window.history.replaceState({}, '', url.pathname + (url.hash || ''));
+              setIsEditMode(false);
+            }}
+            className="ml-2 px-2 py-0.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-[11px] text-slate-300 hover:text-white transition-colors cursor-pointer border border-slate-700"
+            title="Ver la landing como visitante público (ocultar controles de edición)"
+          >
+            Vista visitante
+          </button>
+        </aside>
+      )}
     </div>
   );
 }

@@ -25,6 +25,7 @@ interface NavbarProps {
   onToggleDarkMode: () => void;
   activeColor: ThemeColor;
   darkMode: boolean;
+  isEditMode?: boolean;
 }
 
 const navItems = [
@@ -55,6 +56,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   onToggleDarkMode,
   activeColor,
   darkMode,
+  isEditMode = false,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [colorMenuOpen, setColorMenuOpen] = useState(false);
@@ -111,59 +113,64 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="sm:hidden">QR</span>
           </button>
 
-          {/* Quick Edit */}
-          <button
-            id="btn-edit-landing"
-            onClick={onOpenEditorModal}
-            className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
-            title="Editar contenido"
-          >
-            <Edit3 className="w-4 h-4" />
-          </button>
+          {/* Admin & Content Editing Controls (Visible only when ?edit=1) */}
+          {isEditMode && (
+            <>
+              {/* Quick Edit */}
+              <button
+                id="btn-edit-landing"
+                onClick={onOpenEditorModal}
+                className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+                title="Editar contenido"
+              >
+                <Edit3 className="w-4 h-4" />
+              </button>
 
-          {/* Color Palette Menu */}
-          <div className="relative">
-            <button
-              id="btn-toggle-color-menu"
-              onClick={() => setColorMenuOpen(!colorMenuOpen)}
-              className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
-              title="Cambiar color del tema"
-            >
-              <Palette className="w-4 h-4" />
-            </button>
+              {/* Color Palette Menu */}
+              <div className="relative">
+                <button
+                  id="btn-toggle-color-menu"
+                  onClick={() => setColorMenuOpen(!colorMenuOpen)}
+                  className="p-2 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors cursor-pointer"
+                  title="Cambiar color del tema"
+                >
+                  <Palette className="w-4 h-4" />
+                </button>
 
-            {colorMenuOpen && (
-              <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in zoom-in-95">
-                <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase px-2 py-1 tracking-wider">
-                  Color de acento
-                </div>
-                <div className="space-y-1 mt-1">
-                  {colorOptions.map((opt) => (
-                    <button
-                      key={opt.id}
-                      onClick={() => {
-                        onThemeColorChange(opt.id);
-                        setColorMenuOpen(false);
-                      }}
-                      className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-xs font-medium transition-colors ${
-                        activeColor === opt.id
-                          ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
-                          : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
-                      }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <span className={`w-3.5 h-3.5 rounded-full ${opt.bg}`} />
-                        <span>{opt.label}</span>
-                      </div>
-                      {activeColor === opt.id && (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-slate-700 dark:text-slate-200" />
-                      )}
-                    </button>
-                  ))}
-                </div>
+                {colorMenuOpen && (
+                  <div className="absolute right-0 mt-2 w-44 bg-white dark:bg-slate-900 rounded-xl shadow-xl border border-slate-200 dark:border-slate-800 p-2 z-50 animate-in fade-in zoom-in-95">
+                    <div className="text-[11px] font-semibold text-slate-400 dark:text-slate-500 uppercase px-2 py-1 tracking-wider">
+                      Color de acento
+                    </div>
+                    <div className="space-y-1 mt-1">
+                      {colorOptions.map((opt) => (
+                        <button
+                          key={opt.id}
+                          onClick={() => {
+                            onThemeColorChange(opt.id);
+                            setColorMenuOpen(false);
+                          }}
+                          className={`w-full flex items-center justify-between px-2 py-1.5 rounded-md text-xs font-medium transition-colors cursor-pointer ${
+                            activeColor === opt.id
+                              ? 'bg-slate-100 dark:bg-slate-800 text-slate-900 dark:text-white'
+                              : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800/50'
+                          }`}
+                        >
+                          <div className="flex items-center gap-2">
+                            <span className={`w-3.5 h-3.5 rounded-full ${opt.bg}`} />
+                            <span>{opt.label}</span>
+                          </div>
+                          {activeColor === opt.id && (
+                            <CheckCircle2 className="w-3.5 h-3.5 text-slate-700 dark:text-slate-200" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
+            </>
+          )}
 
           {/* Dark Mode Toggle */}
           <button
@@ -231,16 +238,18 @@ export const Navbar: React.FC<NavbarProps> = ({
               <Download className="w-4 h-4" />
               Exportar
             </button>
-            <button
-              onClick={() => {
-                onOpenEditorModal();
-                setMobileMenuOpen(false);
-              }}
-              className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200 px-3 py-2"
-            >
-              <Edit3 className="w-4 h-4" />
-              Editar
-            </button>
+            {isEditMode && (
+              <button
+                onClick={() => {
+                  onOpenEditorModal();
+                  setMobileMenuOpen(false);
+                }}
+                className="flex items-center gap-2 text-sm font-medium text-slate-700 dark:text-slate-200 px-3 py-2 cursor-pointer"
+              >
+                <Edit3 className="w-4 h-4" />
+                Editar
+              </button>
+            )}
           </div>
         </div>
       )}
