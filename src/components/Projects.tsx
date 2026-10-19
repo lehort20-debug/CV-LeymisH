@@ -11,9 +11,9 @@ interface ProjectsProps {
 
 const ORDERED_CATEGORIES = [
   'Todos',
-  'Branding & Punto de Venta',
-  'Eventos & Campañas',
+  'Estrategia & Contenidos',
   'Analítica & CRM',
+  'Marketing Estratégico',
   'Innovación & IA',
 ];
 
@@ -24,8 +24,9 @@ export const Projects: React.FC<ProjectsProps> = ({
   const [activeCategory, setActiveCategory] = useState<string>('Todos');
   const theme = themeConfigs[themeColor];
 
-  // Keep user-requested ordered categories that actually exist or the full ordered set
-  const categories = ORDERED_CATEGORIES;
+  // Derive categories dynamically from existing projects while keeping 'Todos' first
+  const projectCats = Array.from(new Set(projects.map((p) => p.category))).filter(Boolean);
+  const categories = ['Todos', ...projectCats];
 
   const filteredProjects =
     activeCategory === 'Todos'
@@ -46,7 +47,7 @@ export const Projects: React.FC<ProjectsProps> = ({
               Proyectos destacados
             </h2>
             <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
-              Experiencias y proyectos desarrollados a lo largo de mi trayectoria profesional que hoy conecto con mi formación en Marketing Estratégico.
+              Casos prácticos y soluciones en marketing estratégico, desarrollo comercial B2B, CRM y automatización con IA.
             </p>
           </div>
 

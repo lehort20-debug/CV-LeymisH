@@ -16,7 +16,7 @@ import { ExportModal } from './components/ExportModal';
 import { QRCodeModal } from './components/QRCodeModal';
 import { Sparkles, X } from 'lucide-react';
 
-const STORAGE_KEY = 'cv_landing_portfolio_leymis_marketing_v6';
+const STORAGE_KEY = 'cv_landing_portfolio_leymis_marketing_v8_profesional';
 
 export default function App() {
   // Load saved state or default

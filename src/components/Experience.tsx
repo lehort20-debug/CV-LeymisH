@@ -25,7 +25,7 @@ export const Experience: React.FC<ExperienceProps> = ({ data, themeColor }) => {
             Experiencia Laboral & Impacto
           </h2>
           <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-2xl">
-            Experiencia previa en entornos comerciales y de visibilidad que aportan soltura real en campañas, clientes y eventos.
+            Más de 15 años de trayectoria comercial B2B, estrategia de marketing y desarrollo de relaciones de largo plazo.
           </p>
         </div>
 

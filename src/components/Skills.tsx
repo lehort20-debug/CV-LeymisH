@@ -24,7 +24,7 @@ export const Skills: React.FC<SkillsProps> = ({ categories, themeColor }) => {
             Habilidades Técnicas & Estratégicas
           </h2>
           <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-xl">
-            Stack tecnológico y herramientas con las que construyo soluciones robustas día a día.
+            Competencias estratégicas, habilidades comerciales y herramientas digitales para generar impacto directo en negocio.
           </p>
         </div>
 

@@ -9,10 +9,11 @@ import {
   Share2,
   ExternalLink,
   MessageCircle,
-  Sparkles,
 } from 'lucide-react';
 import { PortfolioData, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
+
+export const FIXED_PORTFOLIO_URL = 'https://cv-leymis-h.vercel.app';
 
 interface QRCodeModalProps {
   isOpen: boolean;
@@ -29,17 +30,15 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [copied, setCopied] = useState(false);
-  const [customUrl, setCustomUrl] = useState('');
+  const [customUrl, setCustomUrl] = useState(FIXED_PORTFOLIO_URL);
   const [downloading, setDownloading] = useState(false);
 
   const theme = themeConfigs[themeColor];
 
-  // Initialize with current URL
+  // Always enforce the fixed production URL (never window.location from preview)
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      // Use clean URL without query params or hash if present
-      const currentUrl = window.location.origin + window.location.pathname;
-      setCustomUrl(currentUrl);
+    if (isOpen) {
+      setCustomUrl(FIXED_PORTFOLIO_URL);
     }
   }, [isOpen]);
 
@@ -69,11 +68,27 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
 
   const handleCopyLink = async () => {
     try {
-      await navigator.clipboard.writeText(customUrl);
+      await navigator.clipboard.writeText(customUrl || FIXED_PORTFOLIO_URL);
       setCopied(true);
       setTimeout(() => setCopied(false), 2500);
     } catch (err) {
       console.error('Failed to copy text', err);
+    }
+  };
+
+  const handleNativeShare = async () => {
+    if (typeof navigator !== 'undefined' && typeof navigator.share === 'function') {
+      try {
+        await navigator.share({
+          title: `${data.personal.fullName} | ${data.personal.title}`,
+          text: `Landing page y portafolio profesional de ${data.personal.fullName}:`,
+          url: customUrl || FIXED_PORTFOLIO_URL,
+        });
+      } catch {
+        // User cancelled share dialog
+      }
+    } else {
+      handleCopyLink();
     }
   };
 
@@ -111,7 +126,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
 
       ctx.fillStyle = '#64748b';
       ctx.font = '14px system-ui, -apple-system, sans-serif';
-      ctx.fillText('Estudiante de Marketing Estratégico · Prácticas', exportCanvas.width / 2, 75);
+      ctx.fillText(data.personal.title, exportCanvas.width / 2, 75);
 
       // Draw QR Code
       ctx.drawImage(mainCanvas, padding, padding + headerHeight);
@@ -123,7 +138,11 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
 
       ctx.fillStyle = '#94a3b8';
       ctx.font = '11px system-ui, -apple-system, sans-serif';
-      ctx.fillText(customUrl.replace(/^https?:\/\//, ''), exportCanvas.width / 2, exportCanvas.height - 18);
+      ctx.fillText(
+        (customUrl || FIXED_PORTFOLIO_URL).replace(/^https?:\/\//, ''),
+        exportCanvas.width / 2,
+        exportCanvas.height - 18
+      );
 
       const link = document.createElement('a');
       link.download = `QR-Landing-${data.personal.fullName.replace(/\s+/g, '-')}.png`;
@@ -135,8 +154,11 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
   };
 
   const shareWhatsappUrl = `https://wa.me/?text=${encodeURIComponent(
-    `¡Hola! Te comparto el enlace a mi landing page y portafolio profesional de Marketing: ${customUrl}`
+    `¡Hola! Te comparto el enlace a mi landing page y portafolio profesional de Marketing: ${customUrl || FIXED_PORTFOLIO_URL}`
   )}`;
+
+  const supportsNativeShare =
+    typeof navigator !== 'undefined' && typeof navigator.share === 'function';
 
   return (
     <div
@@ -156,7 +178,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
             <div>
               <h3 className="font-bold text-base leading-tight">Código QR de mi Landing</h3>
               <p className="text-xs text-slate-500 dark:text-slate-400">
-                Comparte tu perfil fácilmente
+                Comparte tu perfil profesional fácilmente
               </p>
             </div>
           </div>
@@ -171,7 +193,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
         {/* Modal Body */}
         <div className="p-6 flex flex-col items-center text-center">
           <p className="text-xs text-slate-600 dark:text-slate-300 mb-4 max-w-xs leading-relaxed">
-            Cualquier persona puede escanear este código con la cámara de su móvil para acceder directamente a tu landing page y ver tu currículum.
+            Escanear este código con la cámara de cualquier móvil abre directamente tu landing page oficial en Vercel.
           </p>
 
           {/* QR Code Canvas Frame */}
@@ -185,7 +207,7 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
           {/* URL Input with copy button */}
           <div className="w-full mt-5">
             <label className="block text-left text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-              Enlace de tu landing page:
+              Enlace oficial de tu landing page:
             </label>
             <div className="flex items-center gap-2 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-800/60">
               <input
@@ -234,6 +256,26 @@ export const QRCodeModal: React.FC<QRCodeModalProps> = ({
               <span>Compartir WhatsApp</span>
             </a>
           </div>
+
+          {supportsNativeShare && (
+            <button
+              onClick={handleNativeShare}
+              className="w-full mt-2.5 py-2.5 px-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-750 text-slate-700 dark:text-slate-200 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+            >
+              <Share2 className="w-4 h-4 text-indigo-500" />
+              <span>Más opciones para compartir (Móvil)</span>
+            </button>
+          )}
+
+          <a
+            href={customUrl || FIXED_PORTFOLIO_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="text-[11px] text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 flex items-center justify-center gap-1 mt-3 transition-colors"
+          >
+            <span>Abrir landing oficial ({FIXED_PORTFOLIO_URL.replace(/^https?:\/\//, '')})</span>
+            <ExternalLink className="w-3 h-3" />
+          </a>
         </div>
 
         {/* Modal Footer Tips */}

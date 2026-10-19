@@ -24,7 +24,7 @@ export const Education: React.FC<EducationProps> = ({ education, themeColor }) =
             Educación & Certificaciones
           </h2>
           <p className="mt-2 text-base text-slate-600 dark:text-slate-400 max-w-xl">
-            Base académica y acreditaciones oficiales en tecnologías punteras.
+            Formación académica oficial y programas de actualización continua en marketing, finanzas e inteligencia artificial.
           </p>
         </div>
 

@@ -17,6 +17,7 @@ import {
   Sliders,
   Maximize2,
   Check,
+  Calendar,
 } from 'lucide-react';
 import { PortfolioData, ThemeColor } from '../types';
 import { themeConfigs } from '../lib/theme';
@@ -118,7 +119,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span>{personal.availabilityText || 'Disponible para nuevos retos profesionales'}</span>
+              <span>{personal.availabilityText || 'Disponible para nuevos proyectos · Presencial o híbrido'}</span>
             </div>
 
             {/* Name & Title */}
@@ -147,7 +148,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500" />
                 <span className="font-medium text-slate-700 dark:text-slate-300">
-                  Prácticas en Marketing Estratégico
+                  Estrategia comercial · Trade marketing · CRM e IA
                 </span>
               </div>
             </div>
@@ -155,12 +156,14 @@ export const Hero: React.FC<HeroProps> = ({
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-3 w-full sm:w-auto mb-8">
               <a
-                href="#contacto"
+                href="https://calendar.app.google/MctgYjLJqXKND6279"
+                target="_blank"
+                rel="noreferrer"
                 id="btn-hero-contact"
                 className={`flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm shadow-md transition-all hover:shadow-lg active:scale-95 ${theme.accentBg}`}
               >
-                <span>Hablemos</span>
-                <ArrowRight className="w-4 h-4" />
+                <Calendar className="w-4 h-4" />
+                <span>Agendar una llamada</span>
               </a>
 
               <a
@@ -407,7 +410,7 @@ export const Hero: React.FC<HeroProps> = ({
                   <div className="flex items-center justify-between text-xs py-2 px-3 rounded-xl bg-slate-50 dark:bg-slate-800/60 border border-slate-100 dark:border-slate-800">
                     <span className="text-slate-500 dark:text-slate-400">Modalidad</span>
                     <span className="font-medium text-slate-700 dark:text-slate-300">
-                      Remoto / Híbrido
+                      Presencial / Híbrido
                     </span>
                   </div>
 
