@@ -125,12 +125,14 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Name & Title */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
-              Hola, soy{' '}
-              <span className={`bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent`}>
-                {personal.fullName}
-              </span>
-            </h1>
+            <div className="@container w-full">
+              <h1 className="whitespace-nowrap text-[clamp(20px,calc(100cqi/15.2),60px)] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
+                Hola, soy{' '}
+                <span className={`bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent`}>
+                  {personal.fullName}
+                </span>
+              </h1>
+            </div>
 
             <p className="text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-300 mb-4 tracking-tight">
               {personal.title}
