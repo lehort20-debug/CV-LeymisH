@@ -3,9 +3,9 @@ import { PortfolioData } from '../types';
 export const defaultPortfolio: PortfolioData = {
   personal: {
     fullName: 'Leymis Horta Puentes',
-    title: 'Marketing Estratégico y Desarrollo Comercial B2B',
+    title: 'Marketing Estratégico y Desarrollo Comercial B2B y B2C',
     tagline: 'Convierto la estrategia de marketing en clientes y en relaciones que duran.',
-    bio: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B, en sectores como hostelería (HORECA), eventos e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
+    bio: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en sectores como hostelería (HORECA), eventos e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
     location: 'Barcelona, España',
     email: 'lehort20@icloud.com',
     phone: '613 302 129',
@@ -19,15 +19,15 @@ export const defaultPortfolio: PortfolioData = {
     },
   },
   stats: [
-    { id: '1', label: 'Área Comercial B2B', value: '15+ Años', description: 'Experiencia en HORECA, eventos e industria' },
+    { id: '1', label: 'Comercial B2B y B2C', value: '15+ Años', description: 'Experiencia en HORECA, eventos e industria' },
     { id: '2', label: 'Ciclo de Venta', value: 'End-to-End', description: 'Captación, negociación, posventa y fidelización' },
     { id: '3', label: 'Estrategia & Trade', value: 'Resultados', description: 'Propuesta de valor y visión de rentabilidad' },
     { id: '4', label: 'Digital & IA', value: 'CRM + IA', description: 'Chatbots, automatización y landing pages' },
   ],
   about: {
-    story: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B, en sectores como hostelería (HORECA), eventos e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
+    story: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en sectores como hostelería (HORECA), eventos e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
     keyPoints: [
-      'Visión de cliente y ciclo comercial completo: más de 15 años en ventas B2B conociendo de primera mano las objeciones, la negociación y los factores clave para cerrar y fidelizar cuentas.',
+      'Visión de cliente y ciclo comercial completo: más de 15 años en ventas B2B y B2C conociendo de primera mano las objeciones, la negociación y los factores clave para cerrar y fidelizar cuentas.',
       'Estrategia de marketing conectada a resultados: diseño de propuestas de valor, análisis de mercado y trade marketing orientados a la rentabilidad del negocio.',
       'Herramientas digitales y CRM: implementación de CRM, control de embudos, seguimiento de incidencias y gestión ordenada de bases de datos.',
       'Inteligencia Artificial y automatización: aplicación de ChatGPT, Claude, desarrollo de chatbots para atención y cualificación de leads, y landing pages de venta.',
@@ -184,7 +184,7 @@ export const defaultPortfolio: PortfolioData = {
 export const sampleProfiles: { label: string; role: string; data: Partial<PortfolioData> }[] = [
   {
     label: 'Leymis Horta Puentes',
-    role: 'Marketing Estratégico y Desarrollo Comercial B2B',
+    role: 'Marketing Estratégico y Desarrollo Comercial B2B y B2C',
     data: defaultPortfolio,
   },
   {
