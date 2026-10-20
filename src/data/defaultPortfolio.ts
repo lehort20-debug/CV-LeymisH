@@ -64,7 +64,7 @@ export const defaultPortfolio: PortfolioData = {
         'Gestión y actualización del CRM y de las bases de datos de clientes.',
         'Coordinación con proveedores y departamentos internos para cumplir plazos y compromisos con el cliente.',
         'Atención B2B y B2C: empresas por teléfono y email, y venta y asesoramiento al cliente final en tienda.',
-        'Participación en la organización de eventos y actividades deportivas para clientes.',
+        'Organización de eventos y actividades deportivas para clientes, con coordinación de proveedores y participantes de principio a fin.',
         'Resolución de incidencias y devoluciones.',
       ],
       technologies: ['CRM', 'Ciclo Comercial', 'Venta en tienda', 'Atención B2B y B2C', 'Eventos', 'Proveedores'],
