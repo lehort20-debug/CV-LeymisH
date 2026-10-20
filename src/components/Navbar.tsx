@@ -73,7 +73,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             CV
           </div>
           <div className="flex flex-col shrink-0">
-            <span className="text-sm sm:text-base font-bold leading-tight whitespace-nowrap">
+            <span className="text-[15px] sm:text-[17px] font-bold leading-tight whitespace-nowrap">
               Leymis <span className={theme.accentText}>Horta</span>
             </span>
           </div>
@@ -166,7 +166,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               {darkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4" />}
             </button>
 
-            {/* Mobile hamburger */}
+            {/* Mobile hamburger (solo en modo edición) */}
+            {isEditMode && (
             <button
               id="btn-mobile-menu-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -175,9 +176,23 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
+            )}
           </div>
         </div>
       </div>
+
+      {/* Mobile: enlaces siempre visibles */}
+      <nav className="md:hidden flex flex-wrap justify-center gap-x-4 gap-y-1.5 px-4 pb-2.5 text-[13px] font-medium text-slate-600 dark:text-slate-300">
+        {navItems.map((item) => (
+          <a
+            key={item.href}
+            href={item.href}
+            className={`whitespace-nowrap transition-colors hover:text-slate-900 dark:hover:text-white ${theme.accentHover}`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
