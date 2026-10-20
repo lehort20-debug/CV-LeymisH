@@ -179,11 +179,11 @@ export const Hero: React.FC<HeroProps> = ({
               <button
                 id="btn-hero-qr-share"
                 onClick={onOpenQrModal}
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl font-semibold text-sm border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 shadow-xs transition-colors cursor-pointer"
+                className="flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm border-2 border-indigo-600 dark:border-indigo-500 bg-transparent text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50/60 dark:hover:bg-indigo-950/30 hover:border-indigo-700 dark:hover:border-indigo-400 shadow-xs transition-all cursor-pointer active:scale-95"
                 title="Ver y compartir código QR de mi landing page"
               >
                 <QrCode className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                <span>Compartir QR</span>
+                <span className="text-indigo-600 dark:text-indigo-400">Compartir QR</span>
               </button>
             </div>
 
