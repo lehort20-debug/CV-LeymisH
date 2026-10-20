@@ -74,7 +74,7 @@ export const defaultPortfolio: PortfolioData = {
       location: 'Valencia, España',
       period: '2006 – 2014',
       current: false,
-      description: 'Empresa del sector del mármol, entorno B2B.',
+      description: 'Empresa del sector del mármol (B2B). Ocho años en el área comercial y administrativa: la base de mi visión del ciclo comercial completo.',
       achievements: [
         'Coordiné el circuito comercial entre ventas, administración y clientes, del pedido a la facturación.',
         'Gestioné pedidos y documentación comercial con seguimiento de plazos y entregas.',
