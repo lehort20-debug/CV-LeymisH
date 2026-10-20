@@ -188,7 +188,16 @@ export const Hero: React.FC<HeroProps> = ({
             </div>
 
             {/* Social Links Row */}
-            <div className="flex items-center gap-3">
+            <div className="flex flex-wrap items-center gap-3">
+              <a
+                href="/CV_Leymis_Horta_Puentes.pdf"
+                download="CV_Leymis_Horta_Puentes.pdf"
+                id="btn-hero-cv-pdf"
+                className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span>Descargar CV (PDF)</span>
+              </a>
               <span className="text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                 Redes:
               </span>

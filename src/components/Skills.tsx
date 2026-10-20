@@ -40,29 +40,16 @@ export const Skills: React.FC<SkillsProps> = ({ categories, themeColor }) => {
                 {cat.category}
               </h3>
 
-              <div className="space-y-4">
-                {cat.skills.map((skill, sIdx) => {
-                  const level = skill.level ?? 85;
-                  return (
-                    <div key={sIdx} className="space-y-1.5">
-                      <div className="flex items-center justify-between text-xs font-semibold text-slate-700 dark:text-slate-300">
-                        <span className="flex items-center gap-1.5">
-                          <Check className={`w-3.5 h-3.5 ${theme.accentText}`} />
-                          {skill.name}
-                        </span>
-                        <span className="text-slate-400 font-mono text-[11px]">{level}%</span>
-                      </div>
-
-                      {/* Progress bar */}
-                      <div className="w-full h-2 rounded-full bg-slate-100 dark:bg-slate-800 overflow-hidden">
-                        <div
-                          className={`h-full rounded-full transition-all duration-700 bg-gradient-to-r ${theme.gradientBg}`}
-                          style={{ width: `${level}%` }}
-                        />
-                      </div>
-                    </div>
-                  );
-                })}
+              <div className="flex flex-wrap gap-2">
+                {cat.skills.map((skill, sIdx) => (
+                  <span
+                    key={sIdx}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/60 text-slate-700 dark:text-slate-200"
+                  >
+                    <Check className={`w-3.5 h-3.5 ${theme.accentText}`} />
+                    {skill.name}
+                  </span>
+                ))}
               </div>
             </div>
           ))}

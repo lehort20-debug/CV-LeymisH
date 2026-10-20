@@ -74,7 +74,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
           <div className="flex flex-col shrink-0">
             <span className="text-sm sm:text-base font-bold leading-tight whitespace-nowrap">
-              Leymis<span className={theme.accentText}>.HP</span>
+              Leymis <span className={theme.accentText}>Horta</span>
             </span>
             <span className="text-[11px] text-slate-500 dark:text-slate-400 font-medium hidden lg:inline whitespace-nowrap">
               Marketing Estratégico
