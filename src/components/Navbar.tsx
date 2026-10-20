@@ -68,7 +68,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           className="flex items-center gap-2.5 font-bold text-slate-900 dark:text-white tracking-tight group shrink-0"
         >
           <div
-            className={`w-9 h-9 rounded-xl flex items-center justify-center text-white font-extrabold text-xs tracking-wider shadow-sm transition-transform group-hover:scale-105 ${theme.accentBg}`}
+            className={`w-11 h-11 rounded-xl flex items-center justify-center text-white font-extrabold text-lg tracking-wide shadow-sm transition-transform group-hover:scale-105 ${theme.accentBg}`}
           >
             CV
           </div>
