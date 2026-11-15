@@ -52,12 +52,12 @@ export const defaultPortfolio: PortfolioData = {
     },
     {
       id: 'exp-2',
-      role: 'Asistente comercial y administrativa (Sales Administrative Assistant)',
+      role: 'Comercial y administrativa (Sales & Administration)',
       company: 'Sea Air Land',
       location: 'Valencia, España',
       period: '2014 – 2019',
       current: false,
-      description: 'Tienda especializada con venta a empresas y a cliente final, y organización de eventos: soporte integral al ciclo de venta, administración comercial y atención a empresas y cliente final.',
+      description: 'Venta a empresas y a cliente final en tienda especializada y gestión administrativa del ciclo comercial (presupuestos, pedidos, facturación y CRM).',
       achievements: [
         'Atención B2B y B2C: empresas por teléfono y email, y venta y asesoramiento al cliente final en tienda.',
         'Colaboré en la organización de los eventos de la tienda, coordinando equipo y proveedores para tener a tiempo productos y materiales.',
