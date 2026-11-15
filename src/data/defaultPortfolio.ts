@@ -67,7 +67,7 @@ export const defaultPortfolio: PortfolioData = {
     },
     {
       id: 'exp-3',
-      role: 'Coordinadora comercial y administrativa (Administrative & Sales Coordinator)',
+      role: 'Coordinadora comercial y administrativa (Sales & Administration Coordinator)',
       company: 'Roama Marmur S.L.',
       location: 'Valencia, España',
       period: '2006 – 2014',
