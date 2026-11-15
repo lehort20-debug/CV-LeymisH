@@ -116,7 +116,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
           </h2>
           <div className="space-y-3 text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-xl mx-auto">
             <p>
-              Disponible para nuevos proyectos y posiciones en Marketing Estratégico y Desarrollo Comercial B2B y B2C (presencial o híbrido en Barcelona).
+              Disponible para incorporación inmediata en puestos de Marketing Estratégico y Desarrollo Comercial B2B y B2C (presencial o híbrido en Barcelona).
             </p>
             <p className="font-medium text-slate-800 dark:text-slate-200">
               Si deseas explorar cómo convertir la estrategia comercial en clientes y resultados reales, estaré encantada de conversar.
@@ -203,7 +203,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 Déjame un mensaje
               </h3>
               <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 leading-relaxed">
-                Para propuestas de colaboración, nuevos proyectos o consultas profesionales.
+                Para ofertas de empleo, entrevistas o consultas profesionales.
               </p>
 
               {/* Form */}
@@ -351,7 +351,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
             <div>
               <div className="text-xs text-slate-400 font-medium">Disponibilidad Actual</div>
               <div className="text-xs sm:text-sm font-semibold text-slate-800 dark:text-slate-200">
-                Disponible para nuevos proyectos · Presencial o híbrido (Barcelona y alrededores)
+                Disponible para incorporación inmediata · Presencial o híbrido (Barcelona y alrededores)
               </div>
             </div>
           </div>

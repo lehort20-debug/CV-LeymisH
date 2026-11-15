@@ -11,7 +11,7 @@ export const defaultPortfolio: PortfolioData = {
     phone: '613 302 129',
     avatarUrl: '/Foto800x800.webp',
     availability: 'available',
-    availabilityText: 'Disponible para nuevos proyectos · Presencial o híbrido',
+    availabilityText: 'Disponible para incorporación inmediata · Presencial o híbrido',
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/leymis-horta',
       email: 'lehort20@icloud.com',
@@ -36,7 +36,7 @@ export const defaultPortfolio: PortfolioData = {
   experience: [
     {
       id: 'exp-1',
-      role: 'Field Sales Representative',
+      role: 'Comercial de campo HORECA (Field Sales Representative)',
       company: 'Sugnatur S.L.',
       location: 'Valencia, España',
       period: '2020 – 2024',
@@ -52,7 +52,7 @@ export const defaultPortfolio: PortfolioData = {
     },
     {
       id: 'exp-2',
-      role: 'Sales Administrative Assistant',
+      role: 'Asistente comercial y administrativa (Sales Administrative Assistant)',
       company: 'Sea Air Land',
       location: 'Valencia, España',
       period: '2014 – 2019',
@@ -68,7 +68,7 @@ export const defaultPortfolio: PortfolioData = {
     },
     {
       id: 'exp-3',
-      role: 'Administrative & Sales Coordinator',
+      role: 'Coordinadora comercial y administrativa (Administrative & Sales Coordinator)',
       company: 'Roama Marmur S.L.',
       location: 'Valencia, España',
       period: '2006 – 2014',
@@ -124,30 +124,30 @@ export const defaultPortfolio: PortfolioData = {
     {
       category: 'Estrategia',
       skills: [
-        { name: 'Marketing estratégico', level: 96 },
-        { name: 'Posicionamiento y propuesta de valor', level: 95 },
-        { name: 'Trade marketing', level: 92 },
-        { name: 'Análisis de mercado', level: 90 },
+        { name: 'Marketing estratégico' },
+        { name: 'Posicionamiento y propuesta de valor' },
+        { name: 'Trade marketing' },
+        { name: 'Análisis de mercado' },
       ],
     },
     {
       category: 'Comercial',
       skills: [
-        { name: 'Venta B2B y B2C', level: 98 },
-        { name: 'Negociación y cierre de acuerdos', level: 96 },
-        { name: 'Gestión de cartera de clientes', level: 98 },
-        { name: 'Posventa y fidelización', level: 96 },
-        { name: 'Export / Import', level: 88 },
+        { name: 'Venta B2B y B2C' },
+        { name: 'Negociación y cierre de acuerdos' },
+        { name: 'Gestión de cartera de clientes' },
+        { name: 'Posventa y fidelización' },
+        { name: 'Export / Import' },
       ],
     },
     {
       category: 'Digital e IA',
       skills: [
-        { name: 'CRM y gestión de clientes', level: 95 },
-        { name: 'Automatización con IA y chatbots', level: 92 },
-        { name: 'Landing pages y web (Lovable)', level: 90 },
-        { name: 'Analítica web', level: 88 },
-        { name: 'ChatGPT, Claude, Notion y Office', level: 96 },
+        { name: 'CRM y gestión de clientes' },
+        { name: 'Automatización con IA y chatbots' },
+        { name: 'Landing pages y web (Lovable)' },
+        { name: 'Analítica web' },
+        { name: 'ChatGPT, Claude, Notion y Office' },
       ],
     },
   ],
