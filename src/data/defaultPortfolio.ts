@@ -9,13 +9,12 @@ export const defaultPortfolio: PortfolioData = {
     location: 'Barcelona, España',
     email: 'lehort20@icloud.com',
     phone: '613 302 129',
-    avatarUrl: '/Foto800x800.png',
+    avatarUrl: '/Foto800x800.webp',
     availability: 'available',
     availabilityText: 'Disponible para nuevos proyectos · Presencial o híbrido',
     socialLinks: {
       linkedin: 'https://www.linkedin.com/in/leymis-horta',
       email: 'lehort20@icloud.com',
-      website: 'https://cv-leymis-h.vercel.app',
     },
   },
   stats: [

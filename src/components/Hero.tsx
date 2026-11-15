@@ -96,7 +96,7 @@ export const Hero: React.FC<HeroProps> = ({
 
   const handleSelectPortrait = (type: 'ai' | 'real') => {
     if (type === 'ai') {
-      if (onUpdateAvatar) onUpdateAvatar('/Foto800x800.png');
+      if (onUpdateAvatar) onUpdateAvatar('/Foto800x800.webp');
     } else {
       if (uploadedRealPhoto) {
         if (onUpdateAvatar) onUpdateAvatar(uploadedRealPhoto);
@@ -268,7 +268,11 @@ export const Hero: React.FC<HeroProps> = ({
                 >
                   <img
                     src={resolveImageUrl(personal.avatarUrl)}
-                    alt={personal.fullName}
+                    alt={`${personal.fullName}, ${personal.title}`}
+                    width={800}
+                    height={800}
+                    fetchPriority="high"
+                    decoding="async"
                     className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-105"
                     style={{
                       objectPosition: `center ${photoPositionY}%`,

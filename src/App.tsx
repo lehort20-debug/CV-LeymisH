@@ -31,9 +31,10 @@ export default function App() {
             prevAvatar &&
             prevAvatar !== '/leymis-profile.jpg' &&
             prevAvatar !== '/leymis-real-headshot.jpg' &&
-            prevAvatar !== '/Foto.png'
+            prevAvatar !== '/Foto.png' &&
+            prevAvatar !== '/Foto800x800.png'
               ? prevAvatar
-              : '/Foto800x800.png';
+              : '/Foto800x800.webp';
           return {
             ...defaultPortfolio,
             personal: {

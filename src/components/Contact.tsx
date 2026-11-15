@@ -365,6 +365,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 rel="noreferrer"
                 className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600 transition-colors shadow-xs"
                 title="LinkedIn"
+                aria-label="LinkedIn"
               >
                 <Linkedin className="w-4 h-4" />
               </a>
@@ -376,6 +377,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 rel="noreferrer"
                 className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shadow-xs"
                 title="GitHub"
+                aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
               </a>
@@ -387,6 +389,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
                 rel="noreferrer"
                 className="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-sky-500 transition-colors shadow-xs"
                 title="Twitter"
+                aria-label="Twitter"
               >
                 <Twitter className="w-4 h-4" />
               </a>
