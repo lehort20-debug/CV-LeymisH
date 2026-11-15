@@ -126,17 +126,19 @@ export const Hero: React.FC<HeroProps> = ({
 
             {/* Name & Title */}
             <div className="@container w-full">
-              <h1 className="whitespace-nowrap text-[clamp(20px,calc(100cqi/15.2),60px)] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
-                Hola, soy{' '}
-                <span className={`bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent`}>
-                  {personal.fullName}
+              <h1>
+                <span className="block whitespace-nowrap text-[clamp(20px,calc(100cqi/15.2),60px)] font-extrabold text-slate-900 dark:text-white tracking-tight leading-[1.1] mb-4">
+                  Hola, soy{' '}
+                  <span className={`bg-gradient-to-r ${theme.gradientText} bg-clip-text text-transparent`}>
+                    {personal.fullName}
+                  </span>
+                </span>
+                {/* El puesto va dentro del H1 para que el título principal diga a qué se dedica */}
+                <span className="block text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-300 mb-4 tracking-tight">
+                  {personal.title}
                 </span>
               </h1>
             </div>
-
-            <p className="text-xl sm:text-2xl font-semibold text-slate-700 dark:text-slate-300 mb-4 tracking-tight">
-              {personal.title}
-            </p>
 
             {/* Tagline / Bio summary */}
             <p className="text-base sm:text-lg text-slate-600 dark:text-slate-400 max-w-2xl mb-6 leading-relaxed">
