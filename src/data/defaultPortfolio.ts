@@ -36,12 +36,12 @@ export const defaultPortfolio: PortfolioData = {
   experience: [
     {
       id: 'exp-1',
-      role: 'Comercial de campo (Field Sales Representative)',
+      role: 'Responsable comercial de zona (Area Sales Manager)',
       company: 'Sugnatur S.L.',
       location: 'Valencia, España',
       period: '2020 – 2024',
       current: false,
-      description: 'Venta directa a empresas en una zona amplia (de Benicàssim a Gandía), con cartera propia de clientes.',
+      description: 'Responsable de la zona de Benicàssim a Gandía, con reporte directo a Dirección General y cartera propia de clientes.',
       achievements: [
         'Gestioné la cartera de clientes de toda la zona: casi el 60 % de los clientes los capté yo.',
         'Reactivé clientes inactivos: identifiqué por qué habían dejado de comprar y corregí esos motivos.',
