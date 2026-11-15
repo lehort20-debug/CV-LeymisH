@@ -35,19 +35,6 @@ export const defaultPortfolio: PortfolioData = {
   },
   experience: [
     {
-      id: 'exp-0',
-      role: 'Prácticas de marketing',
-      company: 'United Events',
-      location: 'Barcelona, España',
-      period: 'oct 2026 – dic 2026',
-      current: true,
-      description: 'Prácticas de marketing (188 h).',
-      achievements: [
-        'Creación y edición de vídeos de los eventos para redes sociales.',
-      ],
-      technologies: ['Edición de vídeo', 'Redes sociales', 'Contenido'],
-    },
-    {
       id: 'exp-1',
       role: 'Comercial de campo (Field Sales Representative)',
       company: 'Sugnatur S.L.',
