@@ -116,7 +116,7 @@ export const Contact: React.FC<ContactProps> = ({ personal, themeColor }) => {
           </h2>
           <div className="space-y-3 text-slate-600 dark:text-slate-300 text-base leading-relaxed max-w-xl mx-auto">
             <p>
-              Disponible para puestos de Marketing Estratégico y Desarrollo de Negocio (presencial o híbrido).
+              Disponible para puestos de responsable de marketing, marketing estratégico y desarrollo de negocio (presencial o híbrido).
             </p>
             <p className="font-medium text-slate-800 dark:text-slate-200">
               Si deseas explorar cómo convertir la estrategia comercial en clientes y resultados reales, estaré encantada de conversar.
