@@ -5,7 +5,7 @@ export const defaultPortfolio: PortfolioData = {
     fullName: 'Leymis Horta Puentes',
     title: 'Marketing Estratégico y Desarrollo de Negocio',
     tagline: 'Convierto la estrategia de marketing en clientes y en relaciones que duran.',
-    bio: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en venta de campo, tienda e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
+    bio: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en venta de campo, tienda e industria. Como responsable comercial, con reporte directo a dirección general, he definido la estrategia y gestionado la cartera; conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
     location: 'Barcelona, España',
     email: 'lehort20@icloud.com',
     phone: '613 302 129',
@@ -24,7 +24,7 @@ export const defaultPortfolio: PortfolioData = {
     { id: '4', label: 'Digital & IA', value: 'CRM + IA', description: 'Chatbots, automatización y landing pages' },
   ],
   about: {
-    story: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en venta de campo, tienda e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
+    story: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en venta de campo, tienda e industria. Como responsable comercial, con reporte directo a dirección general, he definido la estrategia y gestionado la cartera; conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
     keyPoints: [
       'Visión de cliente y ciclo comercial completo: más de 15 años en ventas B2B y B2C conociendo de primera mano las objeciones, la negociación y los factores clave para cerrar y fidelizar cuentas.',
       'Estrategia de marketing conectada a resultados: diseño de propuestas de valor, análisis de mercado y trade marketing orientados a la rentabilidad del negocio.',
@@ -36,18 +36,19 @@ export const defaultPortfolio: PortfolioData = {
   experience: [
     {
       id: 'exp-1',
-      role: 'Responsable comercial de zona (Area Sales Manager)',
+      role: 'Responsable comercial (Sales Manager)',
       company: 'Sugnatur S.L.',
       location: 'Valencia, España',
       period: '2020 – 2024',
       current: false,
-      description: 'Responsable de la zona de Benicàssim a Gandía, con reporte directo a Dirección General y cartera propia de clientes.',
+      description: 'Responsable del área comercial en la zona de Benicàssim a Gandía, con cartera propia de clientes.',
       achievements: [
+        'Definí la estrategia comercial y tomé las decisiones con autonomía, en reporte directo a Dirección General, y dirigí al equipo de reparto.',
         'Gestioné la cartera de clientes de toda la zona: casi el 60 % de los clientes los capté yo.',
         'Reactivé clientes inactivos: identifiqué por qué habían dejado de comprar y corregí esos motivos.',
         'Analicé la oferta de cada cliente y le propuse combinaciones de producto con venta cruzada y degustaciones: más ventas y una relación de asesora de confianza.',
       ],
-      technologies: ['Venta B2B', 'Captación', 'Gestión de Cartera', 'Reactivación de clientes', 'Venta cruzada', 'Fidelización'],
+      technologies: ['Estrategia comercial', 'Dirección de equipo', 'Venta B2B', 'Captación', 'Gestión de Cartera', 'Reactivación de clientes', 'Venta cruzada', 'Fidelización'],
     },
     {
       id: 'exp-2',
@@ -61,7 +62,6 @@ export const defaultPortfolio: PortfolioData = {
         'Atención B2B y B2C: empresas por teléfono y email, y venta y asesoramiento al cliente final en tienda.',
         'Colaboré en la organización de los eventos de la tienda, coordinando equipo y proveedores para tener a tiempo productos y materiales.',
         'Resolví imprevistos de última hora (retrasos de proveedores, más asistentes de lo previsto) sin tener que cancelar la actividad.',
-        'Soporte al ciclo comercial: presupuestos, pedidos, facturación y CRM de clientes.',
       ],
       technologies: ['CRM', 'Ciclo Comercial', 'Venta en tienda', 'Atención B2B y B2C', 'Eventos', 'Proveedores'],
     },
@@ -75,7 +75,6 @@ export const defaultPortfolio: PortfolioData = {
       description: 'Empresa industrial B2B. Ocho años en el área comercial y administrativa: la base de mi visión del ciclo comercial completo.',
       achievements: [
         'Coordiné el circuito comercial entre ventas, administración y clientes, del pedido a la facturación.',
-        'Gestioné pedidos y documentación comercial con seguimiento de plazos y entregas.',
         'Di soporte al equipo de ventas y organicé su agenda comercial.',
       ],
       technologies: ['Coordinación Comercial', 'Gestión de Pedidos', 'Documentación', 'Agenda Comercial'],
