@@ -3,7 +3,7 @@ import { PortfolioData } from '../types';
 export const defaultPortfolio: PortfolioData = {
   personal: {
     fullName: 'Leymis Horta Puentes',
-    title: 'Marketing Estratégico y Desarrollo Comercial B2B y B2C',
+    title: 'Marketing Estratégico y Desarrollo de Negocio',
     tagline: 'Convierto la estrategia de marketing en clientes y en relaciones que duran.',
     bio: 'Profesional de marketing estratégico con más de 15 años en el área comercial B2B y B2C, en venta de campo, tienda e industria. Conozco el ciclo de venta desde dentro: captación, negociación, posventa y fidelización.\n\nUno esa experiencia con estrategia de marketing, análisis de mercado y herramientas digitales (CRM, IA, landing pages) para que la estrategia se traduzca en resultados. Formación en administración y finanzas, con visión de negocio y de rentabilidad.',
     location: 'Barcelona, España',
@@ -183,7 +183,7 @@ export const defaultPortfolio: PortfolioData = {
 export const sampleProfiles: { label: string; role: string; data: Partial<PortfolioData> }[] = [
   {
     label: 'Leymis Horta Puentes',
-    role: 'Marketing Estratégico y Desarrollo Comercial B2B y B2C',
+    role: 'Marketing Estratégico y Desarrollo de Negocio',
     data: defaultPortfolio,
   },
   {
