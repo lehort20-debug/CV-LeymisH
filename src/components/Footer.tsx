@@ -36,7 +36,7 @@ export const Footer: React.FC<FooterProps> = ({ data, themeColor }) => {
           </div>
 
           <div className="text-xs text-slate-500 dark:text-slate-400 flex items-center gap-1">
-            <span>Diseñado con pasión profesional &bull; &copy; {new Date().getFullYear()}</span>
+            <span>&copy; {new Date().getFullYear()}</span>
           </div>
 
           <button
